@@ -146,6 +146,8 @@ Cargo.lock
 
 # and uncomment the following lines
 # .pnp.*
+.parcel-cache/*
 
+node_modules/*
 # End of https://www.toptal.com/developers/gitignore/api/rust,clion
 
