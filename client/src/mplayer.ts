@@ -31,7 +31,7 @@ class MusicPlayer extends LitElement {
         return this;
     }
 
-    async getMusicList():  Promise<String[]> {
+    private async getMusicList():  Promise<string[]> {
         return fetch("http://127.0.0.1:3000/music/list")
         .then(rep => rep.json())
         .then(data => data);

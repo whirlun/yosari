@@ -3,8 +3,11 @@ import "./app.css";
 import { LitElement, html } from "lit";
 import { property, customElement } from "lit/decorators";
 
+import "./uploader";
 @customElement("yo-navbar")
 class NavBar extends LitElement {
+    @property({type: Boolean})
+    cviewerVisibility = false;
 
     createRenderRoot() {
         return this;
@@ -63,7 +66,9 @@ class NavBar extends LitElement {
             <li><a>Item 3</a></li>
           </ul>
         </div>
-        <div class="navbar-end"></div>
+        <div class="navbar-end">
+          <yo-uploader .cviewerVisibility=${this.cviewerVisibility}></yo-uploader>
+        </div>
       </div>
     `;
   }

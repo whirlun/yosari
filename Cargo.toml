@@ -5,14 +5,29 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[workspace]
+members = ["entity", "migration"]
+
 [dependencies]
-axum = "0.6.19"
+axum = {version = "0.6.19", features = ["multipart", "macros"]}
 futures = "0.3.28"
 tower = {version = "0.4", features = ["full"]}
 tower-http = {version = "0.4.4", features=["cors", "trace"]}
-sea-orm = {version = "0.12.1", features = ["sqlx-mysql", "runtime-tokio-native-tls", "macros"]}
+sea-orm = {version = "0.12.1", features = ["sqlx-mysql", "sqlx-sqlite", "runtime-tokio-native-tls", "macros"]}
 tokio = { version = "1.0", features = ["full"] }
 tokio-util = {version = "0.7.9", features = ["io"]}
 tracing = "0.1.37"
 tracing-subscriber = "0.3.17"
 glob = "0.3.1"
+serde = {"version" = "1", features = ["derive"]}
+zip = "0.6"
+anyhow = "1"
+tempfile = "3.8"
+infer = "0.15"
+async-recursion = "1.0"
+walkdir = "2"
+uuid = {version = "1.5", features = ["fast-rng", "v4"]}
+stretto = { version = "0.8", features = ["async"] }
+entity = {path = "entity"}
+migration = {path = "migration"}
+pdfium-render = "0.8.15"
