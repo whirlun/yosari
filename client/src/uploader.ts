@@ -41,43 +41,43 @@ export class MangaUploader extends LitElement {
       method: "POST",
       body: form_data,
     });
-    let finish_upload_content = document.getElementById(
-      "finished"
-    );
-    let loading_content = document.getElementById("uploading");
-    let finish_upload: any = document.getElementById("finish_upload");
-    loading_content.classList.add("flex");
-    loading_content.classList.remove("hidden");
-    finish_upload_content.classList.remove("flex");
-    finish_upload_content.classList.add("hidden");
-    finish_upload.showModal();
-    fetch_result
-      .then((res) => res.json())
-      .then((data) => {
-        loading_content.classList.add("hidden");
-        loading_content.classList.remove("flex");
-        finish_upload_content.classList.remove("hidden");
-        finish_upload_content.classList.add("flex");
-        finish_upload.showModal();
-        console.log(data);
-        sessionStorage.setItem("upload-key", data.msg);
-        finish_upload_content.innerHTML = `
-          ${
-            data.images.length == 0
-              ? ""
-              : `
-          <div class="collapse bg-base-200">
-          <input type="radio" name="my-accordion-1" checked="checked" /> 
-            <div class="collapse-title text-xl font-medium">
-              Images
-            </div>
-            <div class="collapse-content flex">
-              ${produceResult(data.images)}
-            </div>
-          </div>
-          `
-          }`;
-      });
+    // let finish_upload_content = document.getElementById(
+    //   "finished"
+    // );
+    // let loading_content = document.getElementById("uploading");
+    // let finish_upload: any = document.getElementById("finish_upload");
+    // loading_content.classList.add("flex");
+    // loading_content.classList.remove("hidden");
+    // finish_upload_content.classList.remove("flex");
+    // finish_upload_content.classList.add("hidden");
+    // finish_upload.showModal();
+    // fetch_result
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     loading_content.classList.add("hidden");
+    //     loading_content.classList.remove("flex");
+    //     finish_upload_content.classList.remove("hidden");
+    //     finish_upload_content.classList.add("flex");
+    //     finish_upload.showModal();
+    //     console.log(data);
+    //     sessionStorage.setItem("upload-key", data.msg);
+    //     finish_upload_content.innerHTML = `
+    //       ${
+    //         data.images.length == 0
+    //           ? ""
+    //           : `
+    //       <div class="collapse bg-base-200">
+    //       <input type="radio" name="my-accordion-1" checked="checked" /> 
+    //         <div class="collapse-title text-xl font-medium">
+    //           Images
+    //         </div>
+    //         <div class="collapse-content flex">
+    //           ${produceResult(data.images)}
+    //         </div>
+    //       </div>
+    //       `
+    //       }`;
+    //   });
   }
 
   private finishUploadModal() {}
@@ -132,7 +132,7 @@ export class MangaUploader extends LitElement {
           <p class="text-lg font-bold">Drag File Here</p>
         </div>
       </div>
-      <dialog id="finish_upload" class="modal">
+      <!-- <dialog id="finish_upload" class="modal">
         <div class="modal-box w-11/12 h-4/6 max-w-5xl">
           <form method="dialog">
             <button
@@ -159,7 +159,7 @@ export class MangaUploader extends LitElement {
           <div class="hidden" id="finished">
           </div>
         </div>
-      </dialog>
+      </dialog> -->
 
       <div class="flex">
         <button
